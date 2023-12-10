@@ -19,8 +19,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 const giftbox = require("../Streetmall/Home/gift.gif");
 const laptop = require("../Streetmall/Home/Laptop.png");
-const mobileapp = require("../Streetmall/Home/Mobiles.png");
-const shirt = require("../Streetmall/Home/Shoe.png");
+const mobile = require("../Streetmall/Home/Mobiles.png");
+const shirt = require("../Streetmall/Home/Shoe.png"); 
 const shoe = require("../assets/shoes.png");
 const shoehorizontal = require("../assets/shoe799.jpg");
 const dress = require("../assets/dress.jpg");
@@ -46,7 +46,7 @@ const Home = () => {
   const items = [
     { image: giftbox, text: "Gifts" },
     { image: laptop, text: "Laptops" },
-    { image: mobileapp, text: "Mobile Apps" },
+    { image: mobile, text: "Mobile" },
     { image: shirt, text: "Shirts" },
     { image: shoe, text: "Shoes" },
   ];

@@ -42,7 +42,7 @@ const SignInScreen = ({ navigation }) => {
                     <Text style={styles.forget}>Forget Password</Text>
                 </View>
                 <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.loginButton}>
+                    <TouchableOpacity style={styles.loginButton} onPress={handlehomePress}>
                         <Text style={styles.loginButtonText}>Signin</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={handleLoginPress} style={styles.loginButton}>
