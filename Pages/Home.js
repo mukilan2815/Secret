@@ -1,135 +1,61 @@
-import React, { memo } from "react";
-import { SliderBox } from "react-native-image-slider-box";
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TextInput,
-  StatusBar,
-  ScrollView,
-  FlatList,
-} from "react-native";
-import {
-  faMagnifyingGlass,
-  faUsersViewfinder,
-} from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { StyleSheet, View, Image, Text, TextInput, StatusBar, ScrollView } from "react-native";
+import { faMagnifyingGlass, faUsersViewfinder } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 const giftbox = require("../Streetmall/Home/gift.gif");
 const laptop = require("../Streetmall/Home/Laptop.png");
 const mobile = require("../Streetmall/Home/Mobiles.png");
-const shirt = require("../Streetmall/Home/Shoe.png"); 
-const shoe = require("../assets/shoes.png");
-const shoehorizontal = require("../assets/shoe799.jpg");
-const dress = require("../assets/dress.jpg");
-const offer = require("../assets/offer.png");
-const AC = require("../assets/AC.png");
-const washingmachine = require("../assets/washingmachine.jpg");
-const Bata = require("../assets/Bata.png");
-const Nike = require("../assets/nike.png");
-const Puma = require("../assets/Puma-Logo.png");
+const car = require("../Streetmall/Home/car.png");
+const watch = require("../Streetmall/Home/Watch.png");
 
 library.add(faMagnifyingGlass, faUsersViewfinder);
 
-const MemoizedCarouselItem = memo(({ item }) => (
-  <View style={styles.viewcarousel}>
-    <View style={styles.secondview}>
-      <Image style={styles.tinyLogo} source={item.image} />
-      <Text style={styles.gift}>{item.text}</Text>
-    </View>
-  </View>
-));
-
 const Home = () => {
-  const items = [
-    { image: giftbox, text: "Gifts" },
-    { image: laptop, text: "Laptops" },
-    { image: mobile, text: "Mobile" },
-    { image: shirt, text: "Shirts" },
-    { image: shoe, text: "Shoes" },
-  ];
-
-  const additionalItems = [
-    { image: shoehorizontal },
-    { image: dress },
-    { image: offer },
-  ];
-
-  const renderCarouselItem = ({ item, index }) => (
-    <MemoizedCarouselItem key={index} item={item} />
-  );
-
   return (
-    <ScrollView vertical>
+    <ScrollView vertical showsVerticalScrollIndicator={false}>
       <View>
         <View style={styles.container}>
           <View style={styles.topbarinput}>
             <FontAwesomeIcon icon={faMagnifyingGlass} size={20} color="black" />
-            <TextInput
-              placeholder="Search Sunlight.in"
-              style={styles.inputBox}
-            />
-            <FontAwesomeIcon
-              icon={faUsersViewfinder}
-              size={20}
-              color="black"
-            />
+            <TextInput placeholder="Search Sunlight.in" style={styles.inputBox} />
+            <FontAwesomeIcon icon={faUsersViewfinder} size={20} color="black" />
           </View>
           <StatusBar style="auto" />
         </View>
-        <View>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={styles.flatlist}
-            data={items}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={renderCarouselItem}
-          /></View>
-        <View style={styles.slidebox}>
-          <SliderBox
-            images={additionalItems.map((item) => item.image)}
-            sliderBoxHeight={250}
-            circleLoop
-            dotColor="#FFAC2F"
-            inactiveDotColor="#172532"
-            dotStyle={{
-              width: 8,
-              height: 8,
-              borderRadius: 15,
-            }}
-            autoplay={true}
-            imageLoadingColor="transparent"
-            autoplayInterval={5000}
-          />
-        </View>
-
-        <Text style={styles.appliancestext}>
-          Appliances for Home | up to 50 % off
-        </Text>
-
-        <View style={styles.appliances}>
-          <View style={styles.appliancesRow}>
-            <View style={styles.applianceBox}>
-              <Image source={washingmachine} style={styles.applianceImage} />
-              <Text>Washing Machine</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.productsbar}>
+            <View style={{ backgroundColor: 'skyblue',alignItems:'center', borderRadius: 10, height: 'auto', paddingHorizontal: 20, }}>
+              <Image style={styles.productImage} source={giftbox} />
+              <Text>Gifts</Text>
             </View>
-            <View style={styles.applianceBox}>
-              <Image source={AC} style={styles.applianceImage} />
-              <Text>Air Conditioner</Text>
+            <View style={styles.product}>
+              <Image style={styles.productImage} source={mobile} />
+              <Text>Mobiles</Text>
+            </View>
+            <View style={styles.product}>
+              <Image style={styles.productImage} source={watch} />
+              <Text>Watches</Text>
+            </View>
+            <View style={styles.product}>
+              <Image style={{
+                width: 70,
+                height: 70,
+                borderRadius: 10,
+              }} source={laptop} />
+              <Text>Laptops</Text>
+            </View>
+            <View style={styles.product}>
+              <Image style={{
+                width: 120,
+                height: 70,
+                borderRadius: 10,
+              }} source={car} />
+              <Text>Car</Text>
             </View>
           </View>
-          <View>
-            <Text style={styles.topBrandsHeading}>Top Brands</Text>
-            <View style={styles.topBrandsContainer}>
-              <Image source={Bata} style={styles.brandImage} />
-              <Image source={Nike} style={styles.brandImage} />
-              <Image source={Puma} style={styles.brandImage} />
-            </View>
-          </View>
-        </View>
+        </ScrollView>
       </View>
     </ScrollView>
   );
@@ -140,73 +66,6 @@ const styles = StyleSheet.create({
     paddingTop: 120,
     backgroundColor: "#1977F3",
     paddingBottom: 15,
-  },
-  appliancestext: {
-    fontWeight: 'bold',
-    backgroundColor: '#E2E4E5',
-    alignItems: 'baseline',
-  },
-  appliances: {
-    width: '100%',
-    flexDirection: 'row',
-    height: '70%',
-  },
-  appliancesRow: {
-    alignItems: 'baseline',
-    backgroundColor: '#E2E4E5',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  applianceBox: {
-    width: '42%',
-    height: 'auto',
-    borderRadius: 8,
-  },
-  applianceImage: {
-    width: '80%',
-    height: 100,
-    marginBottom: 7,
-  },
-  topBrandsHeading: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  topBrandsContainer: {
-    flexDirection: 'column',
-    marginTop: 10,
-  },
-  brandImage: {
-    width: '30%',
-    height: 30,
-    marginBottom: 10,
-  },
-  flatlist: {
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 20,
-    flex: 1,
-    backgroundColor: '#72C4FF',
-  },
-  slidebox: {
-    marginBottom: 5,
-  },
-  secondview: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  viewcarousel: {
-    paddingTop: 10,
-    width: 75,
-    height: 70,
-  },
-  tinyLogo: {
-    marginHorizontal: 3,
-    width: 40,
-    height: 40,
-  },
-  gift: {
-    color: "#FF3535",
   },
   topbarinput: {
     justifyContent: "center",
@@ -222,6 +81,19 @@ const styles = StyleSheet.create({
     color: "#1977F3",
     marginLeft: 10,
   },
+  productsbar: {
+    flexDirection: 'row',
+    backgroundColor: 'background: rgba(25, 119, 243, 0.4)',
+  },
+  product: {
+    marginRight: 25,
+    alignItems: 'center',
+  },
+  productImage: {
+    width: 65,
+    height: 70,
+    borderRadius: 10,
+  },
 });
 
-export default Home;  
+export default Home;

@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "tailwind-rn": "tailwind-rn",
+    "postcss": "postcss"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -15,10 +17,13 @@
     "@react-navigation/stack": "^6.3.20",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",
+    "postcss": "^8.4.32",
     "react": "18.2.0",
     "react-native": "0.72.6",
     "react-native-elements": "^3.4.3",
-    "react-native-image-slider-box": "^2.0.7"
+    "react-native-image-slider-box": "^2.0.7",
+    "react-native-linear-gradient": "^2.8.3",
+    "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
