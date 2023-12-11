@@ -13,6 +13,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
+    "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
     "expo": "~49.0.15",
@@ -23,6 +24,7 @@
     "react-native-elements": "^3.4.3",
     "react-native-image-slider-box": "^2.0.7",
     "react-native-linear-gradient": "^2.8.3",
+    "react-native-snap-carousel": "^3.9.1",
     "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {
