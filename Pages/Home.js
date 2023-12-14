@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Image, Text, TextInput, StatusBar, ScrollView } from "react-native";
-import { faMagnifyingGlass, faUsersViewfinder } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faUsersViewfinder, faHouse, faBars, faUser, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { Dimensions } from 'react-native';
-import Appnavbar from './AppNavigator';
 
 const { width: screenWidth } = Dimensions.get('window');
 const giftbox = require("../Streetmall/1Home/gift.gif");
@@ -55,85 +54,113 @@ const Home = () => {
   );
 
   return (
-    <ScrollView vertical showsVerticalScrollIndicator={false}>
-      <View>
-        <View style={styles.container}>
-          <View style={styles.topbarinput}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} size={20} color="black" />
-            <TextInput placeholder="Search Sunlight.in" style={styles.inputBox} />
-            <FontAwesomeIcon icon={faUsersViewfinder} size={20} color="black" />
-          </View>
-          <StatusBar style="dark-content" />
-        </View>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.productsbar}>
-            {carouselItems.map((item, index) => (
-              <View key={index} style={styles.product}>
-                <Image style={styles.productImage} source={item.image} />
-                <Text>{item.text}</Text>
-              </View>
-            ))}
-          </View>
-        </ScrollView>
-        <View style={{ marginTop: 20, }}>
-          <Carousel
-            data={carouselItems1}
-            renderItem={renderCarouselItem}
-            sliderWidth={screenWidth}
-            itemWidth={screenWidth}
-            autoplay={true}
-            loop
-            autoplayInterval={2000} // Adjust the interval as needed
-            onSnapToItem={(index) => setActiveSlide(index)}
-          />
-          <Pagination
-            dotsLength={carouselItems1.length}
-            activeDotIndex={activeSlide}
-            containerStyle={styles.paginationContainer}
-            dotStyle={styles.paginationDot}
-            inactiveDotStyle={styles.paginationInactiveDot}
-            inactiveDotOpacity={1}
-            inactiveDotScale={0.6}
-          />
-        </View>
-        <Text style={styles.applianceHeaderText}>Appliances for Home | up to 50 % off </Text>
+    <>
+      <ScrollView vertical showsVerticalScrollIndicator={false}>
         <View>
-          <View style={styles.appliances}>
-            <View style={styles.applianceContainer}>
-              <View style={styles.individual}>
-                <Image source={Ac} style={styles.applianceImage} />
-                <Text style={styles.applianceText}>Air Conditioner</Text>
-              </View>
-              <View style={styles.individual}>
-                <Image source={Washingmachine} style={styles.applianceImage} />
-                <Text style={styles.applianceText}>Washing Machine</Text>
-              </View>
+          <View style={styles.container}>
+            <View style={styles.topbarinput}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} size={20} color="black" />
+              <TextInput placeholder="Search Sunlight.in" style={styles.inputBox} />
+              <FontAwesomeIcon icon={faUsersViewfinder} size={20} color="black" />
             </View>
-            <View style={styles.applianceContainer}>
-              <View style={styles.individual}>
-                <Image source={fridge} style={styles.applianceImage} />
-                <Text style={styles.applianceText}>Refrigilator</Text>
-              </View>
-              <View style={styles.individual}>
-                <Image source={MO} style={styles.applianceImage} />
-                <Text style={styles.applianceText}>Microwave Oven</Text>
-              </View>
+            <StatusBar style="dark-content" />
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={styles.productsbar}>
+              {carouselItems.map((item, index) => (
+                <View key={index} style={styles.product}>
+                  <Image style={styles.productImage} source={item.image} />
+                  <Text>{item.text}</Text>
+                </View>
+              ))}
             </View>
-            <View style={[styles.applianceContainertop, { backgroundColor: '#E8F2FE' }]}>
-              <Text style={styles.topbrand}>Top Brands</Text>
-              <Image source={Nike} style={styles.nike} />
-              <Image source={Puma} style={styles.puma} />
-              <Image source={Bata} style={styles.bata} />
+          </ScrollView>
+          <View style={{ marginTop: 20, }}>
+            <Carousel
+              data={carouselItems1}
+              renderItem={renderCarouselItem}
+              sliderWidth={screenWidth}
+              itemWidth={screenWidth}
+              autoplay={true}
+              loop
+              autoplayInterval={2000} // Adjust the interval as needed
+              onSnapToItem={(index) => setActiveSlide(index)}
+            />
+            <Pagination
+              dotsLength={carouselItems1.length}
+              activeDotIndex={activeSlide}
+              containerStyle={styles.paginationContainer}
+              dotStyle={styles.paginationDot}
+              inactiveDotStyle={styles.paginationInactiveDot}
+              inactiveDotOpacity={1}
+              inactiveDotScale={0.6}
+            />
+          </View>
+          <Text style={styles.applianceHeaderText}>Appliances for Home | up to 50 % off </Text>
+          <View>
+            <View style={styles.appliances}>
+              <View style={styles.applianceContainer}>
+                <View style={styles.individual}>
+                  <Image source={Ac} style={styles.applianceImage} />
+                  <Text style={styles.applianceText}>Air Conditioner</Text>
+                </View>
+                <View style={styles.individual}>
+                  <Image source={Washingmachine} style={styles.applianceImage} />
+                  <Text style={styles.applianceText}>Washing Machine</Text>
+                </View>
+              </View>
+              <View style={styles.applianceContainer}>
+                <View style={styles.individual}>
+                  <Image source={fridge} style={styles.applianceImage} />
+                  <Text style={styles.applianceText}>Refrigilator</Text>
+                </View>
+                <View style={styles.individual}>
+                  <Image source={MO} style={styles.applianceImage} />
+                  <Text style={styles.applianceText}>Microwave Oven</Text>
+                </View>
+              </View>
+              <View style={[styles.applianceContainertop, { backgroundColor: '#E8F2FE' }]}>
+                <Text style={styles.topbrand}>Top Brands</Text>
+                <Image source={Nike} style={styles.nike} />
+                <Image source={Puma} style={styles.puma} />
+                <Image source={Bata} style={styles.bata} />
+              </View>
             </View>
           </View>
         </View>
-        <Appnavbar />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  navbar: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 60,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#1977F3', // Change to your desired blue color
+    borderTopLeftRadius: 20, // Add rounded corners to the top-left and top-right
+    borderTopRightRadius: 20,
+    elevation: 2,
+  },
+  navbarIcon: {
+    width: 20,
+    height: 20,
+    tintColor: 'white', // Change the icon color to white
+  },
+  navbarIconHome: {
+    backgroundColor: '#00ADEF',
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30, // Make it a circle
+    elevation: 5, // Add a bit more elevation for a shadow effect
+  },
   container: {
     paddingTop: 120,
     backgroundColor: "#1977F3",
