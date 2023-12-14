@@ -25,7 +25,9 @@
     "react-native-image-slider-box": "^2.0.7",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-snap-carousel": "^3.9.1",
-    "tailwind-rn": "^4.2.0"
+    "react-native-svg": "^14.1.0",
+    "tailwind-rn": "^4.2.0",
+    "expo-dev-client": "~2.4.12"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
